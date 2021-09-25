@@ -13,5 +13,10 @@
     "Express"
   ],
   "author": "Javier Alejandro Oyarzo @Javiboin",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
 }
