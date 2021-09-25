@@ -1,18 +1,22 @@
-require('dotenv').config();
-const Sequelize = require('sequelize');
+const { application } = require('express');
+const express = require('express');
+const app = express();
+const PORT = process.env.EXPRESS_PORT || 3000;
 
-const connection = new Sequelize(
-  process.env.MYSQL_MUSICAPP_DB,
-  process.env.MYSQL_USER, 
-  process.env.MYSQL_PASS,
-  {
-    host: process.env.MYSQL_HOST,
-    port: process.env.MYSQL_PORT,
-    dialect: 'mysql',
-    define: {
-      freezeTableName: true
-    }
-  }
-);
+const connection = require('./config/db.config');
 
-module.exports = connection;
+app.use(express.urlencoded( { extended: true } ));
+app.use(express.json());
+
+/* no tengo rutas, el servidor esta todo aca
+  si existen rutas:
+    const bandasRoutes = require("./routes/bandas.route");
+    
+    app.use('/api/v1/bandas', bandasRoutes);*/
+
+app.listen(PORT, () => {
+  console.log(`Server is Running on Port ${PORT}`);
+  connection.authenticate()
+    .then(() => console.log('DDBB Connected'))
+    .catch(err => console.log('DDBB error', err))
+})
