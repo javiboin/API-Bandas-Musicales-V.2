@@ -1,0 +1,17 @@
+{
+  "name": "musicapp",
+  "version": "1.0.0",
+  "description": "API DB de bandas musicales",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MySql",
+    "NodeJs",
+    "Sequelize",
+    "Express"
+  ],
+  "author": "Javier Alejandro Oyarzo @Javiboin",
+  "license": "MIT"
+}
